@@ -18,10 +18,7 @@ builder.Services.AddDbContext<ZooContext>(opt =>
 // Configure CORS for Angular
 builder.Services.AddCors(opt => {
     opt.AddPolicy("ZooPolicy", p => p
-        .WithOrigins(
-            "http://localhost:4200",
-            "https://zoo-react-frontend.onrender.com"
-        )
+        .SetIsOriginAllowed(origin => true)
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
